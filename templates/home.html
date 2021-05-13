@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Flask</title>
+</head>
+<body>
+<h1>Hello World</h1>
+{% for post in posts %}
+    <p>{{ post.author }}</p>
+    <p>{{ post.age }}</p>
+{% endfor %}
+</body>
+</html>
