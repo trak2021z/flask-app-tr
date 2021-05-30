@@ -16,9 +16,9 @@ posts = [
 
 @home_view.route('/')
 def display_home_page():
-	return 'Hello, World!'
+    return 'Hello, World!'
 
 
 @home_view.route('/data')
 def api_polls():
-	return render_template('home.html',posts=posts)
+    return render_template('home.html', posts=posts)

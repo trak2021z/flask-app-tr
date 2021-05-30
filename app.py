@@ -1,7 +1,7 @@
 from flask import Flask, render_template, g
 import requests
 from home.views import home_view
-import sqlite3
+import db
 
 
 posts = [
@@ -27,6 +27,7 @@ def create_app(config_file: str):
     app = Flask(__name__)
     app.config.from_pyfile(config_file)
     app.register_blueprint(home_view)
+    db.init_app(app)
     return app
 
 
