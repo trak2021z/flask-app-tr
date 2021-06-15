@@ -10,3 +10,12 @@ class Data(models.Model):
     new_cases = models.IntegerField()
     cumulative_cases = models.IntegerField()
     new_deaths = models.IntegerField()
+
+
+class History(models.Model):
+    id_customer = models.ForeignKey(User, on_delete=models.CASCADE, related_name='id_customer')
+    country_Cd = models.TextField()
+    valid_from = models.IntegerField()
+    valid_to = models.IntegerField()
+    function = models.TextField()
+    fit_perctentage = models.TextField()
