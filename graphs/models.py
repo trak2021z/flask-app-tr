@@ -10,6 +10,7 @@ class Data(models.Model):
     new_cases = models.IntegerField()
     cumulative_cases = models.IntegerField()
     new_deaths = models.IntegerField()
+    cumulative_deaths = models.IntegerField()
 
 
 class History(models.Model):

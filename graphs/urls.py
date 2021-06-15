@@ -15,8 +15,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-import graphs.views as room_views
+import graphs.views as graph_views
 
 urlpatterns = [
-
+    path('upload/', graph_views.upload_data)
 ]
