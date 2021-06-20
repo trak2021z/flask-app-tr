@@ -18,5 +18,7 @@ from django.urls import path
 import graphs.views as graph_views
 
 urlpatterns = [
-    path('upload/', graph_views.upload_data)
+    path('upload/', graph_views.upload_data),
+    path('search/<str:countryCd>/', graph_views.showDataForCountry),
+    path('search/', graph_views.showDataForCountry)
 ]

@@ -28,4 +28,9 @@ def upload_data(request):
         new_data.save()
 
 
-    print("request.POST")
+def showDataForCountry(request, countryCd='PL'):
+    if request.method == 'GET':
+        data_for_country = Data.objects.all().filter(country_code=countryCd).order_by('date_reported')
+        for data in data_for_country:
+            data.date_reported
+    return render(request, "DataForCountry.html", {'data_for_country': data_for_country})
