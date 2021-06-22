@@ -1,3 +1,5 @@
+import time
+
 from django.shortcuts import render, redirect
 from django.views.generic import CreateView
 from django.http import HttpResponseRedirect, HttpResponse
@@ -31,6 +33,15 @@ def upload_data(request):
 def showDataForCountry(request, countryCd='PL'):
     if request.method == 'GET':
         data_for_country = Data.objects.all().filter(country_code=countryCd).order_by('date_reported')
-        for data in data_for_country:
-            data.date_reported
     return render(request, "DataForCountry.html", {'data_for_country': data_for_country})
+
+def data_chart(request, countryCd='PL'):
+    labels = []
+    data = []
+    if request.method == 'GET':
+        data_for_country = Data.objects.all().filter(country_code=countryCd).order_by('date_reported')
+        for el in data_for_country:
+            data.append(el.cumulative_cases)
+            labels.append(time.strftime('%Y-%m-%d', time.localtime(el.date_reported)))
+
+    return render(request, "DataChart.html", {'labels': labels, 'data': data})

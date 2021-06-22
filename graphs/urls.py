@@ -20,5 +20,7 @@ import graphs.views as graph_views
 urlpatterns = [
     path('upload/', graph_views.upload_data),
     path('search/<str:countryCd>/', graph_views.showDataForCountry),
-    path('search/', graph_views.showDataForCountry)
+    path('search/', graph_views.showDataForCountry),
+    path('chart/<str:countryCd>', graph_views.data_chart),
+    path('chart/', graph_views.data_chart)
 ]
